@@ -16,6 +16,16 @@ public class TriangleExercises {
         }
     }
 
+    public static void drawVerticalLine(int n) {
+        for (int line = 1; line <= n; line++) {
+            System.out.print("*");
+            //no newline at the end of output.
+            if (line != n) {
+                System.out.println();
+            }
+        }
+    }
+
     public static void drawRightTriangle(int n) {
         for (int line = 1; line <= n; line++) {
             drawHorizontalLine(line);

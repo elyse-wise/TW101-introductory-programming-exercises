@@ -45,6 +45,21 @@ public class TriangleExercisesTest {
         assertEquals("", outContent.toString());
     }
 
+    @Test
+    public void testDrawVerticalLine() {
+        TriangleExercises.drawVerticalLine(1);
+        assertEquals("*", outContent.toString());
+
+        outContent.reset();
+        TriangleExercises.drawVerticalLine(3);
+        assertEquals("*" + newLine +
+                "*" + newLine +
+                "*", outContent.toString());
+
+        outContent.reset();
+        TriangleExercises.drawVerticalLine(0);
+        assertEquals("", outContent.toString());
+    }
 
     @Test
     public void testDrawRightTriangle() {
