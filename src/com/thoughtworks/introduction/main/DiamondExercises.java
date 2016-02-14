@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class DiamondExercises {
 
+    private static String name = "Elyse";
 
     private static String buildRepeatingString(String s, int n) {
 
@@ -112,5 +113,31 @@ public class DiamondExercises {
         diamond.addAll(bottomLines);
 
         printLines(buildCentrePaddedLines(diamond));
+    }
+
+
+    public static void drawDiamondWithName(int n) {
+
+
+        List<String> diamond = getIsoscelesTriangle(n);
+
+        List<String> bottomLines = getIsoscelesTriangle(n - 1);
+        Collections.reverse(bottomLines);
+        diamond.addAll(bottomLines);
+
+        diamond = buildCentrePaddedLines(diamond);
+
+        //replace the nth line with name (centre-padded)
+        String centredName = buildCentrePaddedString(name, getLongestLineLength(diamond));
+
+        if (n > 0) {
+            if (diamond.isEmpty()) {
+                diamond.add(name);
+            } else {
+                diamond.set((n - 1), centredName);
+            }
+        }
+
+        printLines(diamond);
     }
 }

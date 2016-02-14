@@ -75,7 +75,43 @@ public class DiamondExercisesTest {
                 "    *    ", outContent.toString());
 
         outContent.reset();
-        DiamondExercises.drawIsoscelesTriangle(0);
+        DiamondExercises.drawDiamond(0);
+        assertEquals("", outContent.toString());
+    }
+
+    /**
+     * Note: The spec is ambiguous,
+     * I assume the 'name' in the diamond should be centered.
+     */
+    @Test
+    public void testDrawDiamondWithName() {
+        String name = "Elyse";
+
+        DiamondExercises.drawDiamondWithName(1);
+        assertEquals(name, outContent.toString());
+
+        outContent.reset();
+        DiamondExercises.drawDiamondWithName(3);
+        assertEquals("  *  " + newLine +
+                " *** " + newLine +
+                name + newLine +
+                " *** " + newLine +
+                "  *  ", outContent.toString());
+
+        outContent.reset();
+        DiamondExercises.drawDiamondWithName(5);
+        assertEquals("    *    " + newLine +
+                "   ***   " + newLine +
+                "  *****  " + newLine +
+                " ******* " + newLine +
+                "  " + name + "  " + newLine +
+                " ******* " + newLine +
+                "  *****  " + newLine +
+                "   ***   " + newLine +
+                "    *    ", outContent.toString());
+
+        outContent.reset();
+        DiamondExercises.drawDiamondWithName(0);
         assertEquals("", outContent.toString());
     }
 
