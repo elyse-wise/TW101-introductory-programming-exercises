@@ -11,75 +11,6 @@ public class DiamondExercises {
 
     private static String name = "Elyse";
 
-    private static String buildRepeatingString(String s, int n) {
-
-        String finalString = "";
-        for (int i = 1; i <= n; i++) {
-            finalString += s;
-        }
-        return finalString;
-    }
-
-    /**
-     * find the length of the longest String in a List
-     */
-    private static int getLongestLineLength(List<String> lines) {
-        int lineLength = 0;
-
-        for (String s : lines) {
-            if (s.length() > lineLength) {
-                lineLength = s.length();
-            }
-        }
-
-        return lineLength;
-    }
-
-    /**
-     * Print a padded string (centered to a set length)
-     */
-    private static String buildCentrePaddedString(String content, int lineLength) {
-        int sidePaddingLength = (lineLength - content.length()) / 2;
-
-        String sidePadding = buildRepeatingString(" ", sidePaddingLength);
-
-        String finalString = sidePadding + content + sidePadding;
-
-        //handle odd lengths
-        if (lineLength > 1 && lineLength % 2 == 0) {
-            finalString += " ";
-        }
-
-        return finalString;
-    }
-
-    private static List<String> buildCentrePaddedLines(List<String> lines) {
-        int lineLength = getLongestLineLength(lines);
-
-        for (int i = 0; i < lines.size(); i++) {
-            String centeredLine = buildCentrePaddedString(lines.get(i), lineLength);
-            lines.set(i, centeredLine);
-        }
-
-        return lines;
-    }
-
-    /**
-     * print a list of strings, separated by a newline.
-     * do not add a newline at the end.
-     */
-    private static void printLines(List<String> lines) {
-
-        if (lines.size() > 0) {
-
-            System.out.print(lines.get(0));
-
-            for (int i = 1; i < lines.size(); i++) {
-                System.out.println();
-                System.out.print(lines.get(i));
-            }
-        }
-    }
 
     public static List<String> getIsoscelesTriangle(int n) {
 
@@ -87,7 +18,7 @@ public class DiamondExercises {
 
         for (int i = 1; i <= n; i++) {
             int lineLength = i * 2 - 1;
-            lines.add(buildRepeatingString("*", lineLength));
+            lines.add(StringFormatter.buildRepeatingString("*", lineLength));
         }
 
         return (lines);
@@ -97,7 +28,7 @@ public class DiamondExercises {
 
         List<String> triangle = getIsoscelesTriangle(n);
 
-        printLines(buildCentrePaddedLines(triangle));
+        StringFormatter.printLines(StringFormatter.buildCentrePaddedLines(triangle));
     }
 
     /**
@@ -112,12 +43,11 @@ public class DiamondExercises {
         Collections.reverse(bottomLines);
         diamond.addAll(bottomLines);
 
-        printLines(buildCentrePaddedLines(diamond));
+        StringFormatter.printLines(StringFormatter.buildCentrePaddedLines(diamond));
     }
 
 
     public static void drawDiamondWithName(int n) {
-
 
         List<String> diamond = getIsoscelesTriangle(n);
 
@@ -125,10 +55,10 @@ public class DiamondExercises {
         Collections.reverse(bottomLines);
         diamond.addAll(bottomLines);
 
-        diamond = buildCentrePaddedLines(diamond);
+        diamond = StringFormatter.buildCentrePaddedLines(diamond);
 
         //replace the nth line with name (centre-padded)
-        String centredName = buildCentrePaddedString(name, getLongestLineLength(diamond));
+        String centredName = StringFormatter.buildCentrePaddedString(name, StringFormatter.getLongestLineLength(diamond));
 
         if (n > 0) {
             if (diamond.isEmpty()) {
@@ -138,6 +68,6 @@ public class DiamondExercises {
             }
         }
 
-        printLines(diamond);
+        StringFormatter.printLines(diamond);
     }
 }
