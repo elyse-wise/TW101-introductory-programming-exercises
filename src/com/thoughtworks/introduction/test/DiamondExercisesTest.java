@@ -17,8 +17,7 @@ public class DiamondExercisesTest {
     private String newLine = System.getProperty("line.separator");
 
     /**
-     * Set STDOUT and STDERROR to Print streams, so we can inspect printed
-     * output from main
+     * Set STDOUT to Print stream, so we can inspect printed output
      */
     @Before
     public void setUpStreams() {

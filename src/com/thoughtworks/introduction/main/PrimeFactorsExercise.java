@@ -21,7 +21,7 @@ public class PrimeFactorsExercise {
 
         int ceiling = n;
 
-        List<Integer> primeFactors = new ArrayList<Integer>();
+        List<Integer> primeFactors = new ArrayList<>();
 
         for (int i = 2; i <= ceiling; i++) {
             while (hasFactorOf(ceiling, i)) {

@@ -1,7 +1,5 @@
 package com.thoughtworks.introduction.test;
 
-import com.thoughtworks.introduction.main.DiamondExercises;
-
 import static org.junit.Assert.*;
 
 import java.io.*;
@@ -18,8 +16,7 @@ public class FizzBuzzExerciseTest {
     private String newLine = System.getProperty("line.separator");
 
     /**
-     * Set STDOUT and STDERROR to Print streams, so we can inspect printed
-     * output from main
+     * Set STDOUT to Print stream, so we can inspect printed output
      */
     @Before
     public void setUpStreams() {
@@ -34,6 +31,8 @@ public class FizzBuzzExerciseTest {
         assertNotEquals("Fizz", FizzBuzzExercise.getNumberAsFizzBuzz(8));
         assertNotEquals("Fizz", FizzBuzzExercise.getNumberAsFizzBuzz(5));
         assertNotEquals("Fizz", FizzBuzzExercise.getNumberAsFizzBuzz(0));
+        assertNotEquals("Fizz", FizzBuzzExercise.getNumberAsFizzBuzz(-10));
+
     }
 
     @Test
@@ -44,6 +43,7 @@ public class FizzBuzzExerciseTest {
         assertNotEquals("Buzz", FizzBuzzExercise.getNumberAsFizzBuzz(8));
         assertNotEquals("Buzz", FizzBuzzExercise.getNumberAsFizzBuzz(3));
         assertNotEquals("Buzz", FizzBuzzExercise.getNumberAsFizzBuzz(0));
+        assertNotEquals("Buzz", FizzBuzzExercise.getNumberAsFizzBuzz(-10));
     }
 
     @Test
@@ -53,6 +53,8 @@ public class FizzBuzzExerciseTest {
         assertNotEquals("FizzBuzz", FizzBuzzExercise.getNumberAsFizzBuzz(3));
         assertNotEquals("FizzBuzz", FizzBuzzExercise.getNumberAsFizzBuzz(5));
         assertNotEquals("FizzBuzz", FizzBuzzExercise.getNumberAsFizzBuzz(0));
+        assertNotEquals("FizzBuzz", FizzBuzzExercise.getNumberAsFizzBuzz(-10));
+
     }
 
     @Test
@@ -61,9 +63,11 @@ public class FizzBuzzExerciseTest {
         assertEquals("11", FizzBuzzExercise.getNumberAsFizzBuzz(11));
         assertEquals("2", FizzBuzzExercise.getNumberAsFizzBuzz(2));
         assertEquals("0", FizzBuzzExercise.getNumberAsFizzBuzz(0));
+        assertEquals("-10", FizzBuzzExercise.getNumberAsFizzBuzz(-10));
 
         assertNotEquals("3", FizzBuzzExercise.getNumberAsFizzBuzz(3));
         assertNotEquals("5", FizzBuzzExercise.getNumberAsFizzBuzz(5));
+
     }
 
     @Test

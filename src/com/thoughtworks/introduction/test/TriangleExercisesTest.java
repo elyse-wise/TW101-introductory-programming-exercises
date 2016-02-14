@@ -17,8 +17,7 @@ public class TriangleExercisesTest {
     private String newLine = System.getProperty("line.separator");
 
     /**
-     * Set STDOUT and STDERROR to Print streams, so we can inspect printed
-     * output from main
+     * Set STDOUT to Print stream, so we can inspect printed output
      */
     @Before
     public void setUpStreams() {
@@ -43,6 +42,10 @@ public class TriangleExercisesTest {
         outContent.reset();
         TriangleExercises.drawHorizontalLine(0);
         assertEquals("", outContent.toString());
+
+        outContent.reset();
+        TriangleExercises.drawHorizontalLine(-10);
+        assertEquals("", outContent.toString());
     }
 
     @Test
@@ -58,6 +61,10 @@ public class TriangleExercisesTest {
 
         outContent.reset();
         TriangleExercises.drawVerticalLine(0);
+        assertEquals("", outContent.toString());
+
+        outContent.reset();
+        TriangleExercises.drawVerticalLine(-10);
         assertEquals("", outContent.toString());
     }
 
@@ -79,6 +86,10 @@ public class TriangleExercisesTest {
 
         outContent.reset();
         TriangleExercises.drawRightTriangle(0);
+        assertEquals("", outContent.toString());
+
+        outContent.reset();
+        TriangleExercises.drawRightTriangle(-10);
         assertEquals("", outContent.toString());
     }
 
