@@ -28,9 +28,7 @@ public class DiamondExercisesTest {
     @Test
     public void testDrawIsoscelesTriangle() {
         DiamondExercises.drawIsoscelesTriangle(1);
-        assertEquals("  *  " + newLine +
-                " *** " + newLine +
-                "*****", outContent.toString());
+        assertEquals("*", outContent.toString());
 
         outContent.reset();
         DiamondExercises.drawIsoscelesTriangle(3);
@@ -47,7 +45,7 @@ public class DiamondExercisesTest {
                 "*********", outContent.toString());
 
         outContent.reset();
-        DiamondExercises.drawIsoscelesTriangle(3);
+        DiamondExercises.drawIsoscelesTriangle(0);
         assertEquals("", outContent.toString());
     }
 
