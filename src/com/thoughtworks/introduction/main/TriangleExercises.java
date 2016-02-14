@@ -15,4 +15,14 @@ public class TriangleExercises {
             System.out.print("*");
         }
     }
+
+    public static void drawRightTriangle(int n) {
+        for (int line = 1; line <= n; line++) {
+            drawHorizontalLine(line);
+            //no newline at the end of output.
+            if (line != n) {
+                System.out.println();
+            }
+        }
+    }
 }

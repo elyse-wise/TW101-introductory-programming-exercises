@@ -3,7 +3,9 @@ package com.thoughtworks.introduction.test;
 import com.thoughtworks.introduction.main.TriangleExercises;
 
 import static org.junit.Assert.*;
+
 import java.io.*;
+
 import org.junit.*;
 
 /**
@@ -12,6 +14,7 @@ import org.junit.*;
 public class TriangleExercisesTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private String newLine = System.getProperty("line.separator");
 
     /**
      * Set STDOUT and STDERROR to Print streams, so we can inspect printed
@@ -39,6 +42,28 @@ public class TriangleExercisesTest {
 
         outContent.reset();
         TriangleExercises.drawHorizontalLine(0);
+        assertEquals("", outContent.toString());
+    }
+
+
+    @Test
+    public void testDrawRightTriangle() {
+        TriangleExercises.drawRightTriangle(3);
+        assertEquals("*" + newLine +
+                "**" + newLine +
+                "***", outContent.toString());
+
+        outContent.reset();
+        TriangleExercises.drawRightTriangle(6);
+        assertEquals("*" + newLine +
+                "**" + newLine +
+                "***" + newLine +
+                "****" + newLine +
+                "*****" + newLine +
+                "******", outContent.toString());
+
+        outContent.reset();
+        TriangleExercises.drawRightTriangle(0);
         assertEquals("", outContent.toString());
     }
 
