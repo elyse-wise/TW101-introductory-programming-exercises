@@ -49,6 +49,36 @@ public class DiamondExercisesTest {
         assertEquals("", outContent.toString());
     }
 
+    @Test
+    public void testDrawDiamond() {
+        DiamondExercises.drawDiamond(1);
+        assertEquals("*", outContent.toString());
+
+        outContent.reset();
+        DiamondExercises.drawDiamond(3);
+        assertEquals("  *  " + newLine +
+                " *** " + newLine +
+                "*****" + newLine +
+                " *** " + newLine +
+                "  *  ", outContent.toString());
+
+        outContent.reset();
+        DiamondExercises.drawDiamond(5);
+        assertEquals("    *    " + newLine +
+                "   ***   " + newLine +
+                "  *****  " + newLine +
+                " ******* " + newLine +
+                "*********" + newLine +
+                " ******* " + newLine +
+                "  *****  " + newLine +
+                "   ***   " + newLine +
+                "    *    ", outContent.toString());
+
+        outContent.reset();
+        DiamondExercises.drawIsoscelesTriangle(0);
+        assertEquals("", outContent.toString());
+    }
+
     @After
     public void cleanUpStreams() {
         System.setOut(null);

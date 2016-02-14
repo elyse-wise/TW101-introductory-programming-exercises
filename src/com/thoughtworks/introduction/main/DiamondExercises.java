@@ -1,6 +1,7 @@
 package com.thoughtworks.introduction.main;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -79,7 +80,7 @@ public class DiamondExercises {
         }
     }
 
-    public static void drawIsoscelesTriangle(int n) {
+    public static List<String> getIsoscelesTriangle(int n) {
 
         ArrayList<String> lines = new ArrayList<>();
 
@@ -88,6 +89,28 @@ public class DiamondExercises {
             lines.add(buildRepeatingString("*", lineLength));
         }
 
-        printLines(buildCentrePaddedLines(lines));
+        return (lines);
+    }
+
+    public static void drawIsoscelesTriangle(int n) {
+
+        List<String> triangle = getIsoscelesTriangle(n);
+
+        printLines(buildCentrePaddedLines(triangle));
+    }
+
+    /**
+     * A diamond 'top' is an isosceles triangle
+     * A diamond 'bottom' is an isosceles triangle in reverse order
+     */
+    public static void drawDiamond(int n) {
+
+        List<String> diamond = getIsoscelesTriangle(n);
+
+        List<String> bottomLines = getIsoscelesTriangle(n - 1);
+        Collections.reverse(bottomLines);
+        diamond.addAll(bottomLines);
+
+        printLines(buildCentrePaddedLines(diamond));
     }
 }
