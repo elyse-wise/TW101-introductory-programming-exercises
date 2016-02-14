@@ -1,5 +1,8 @@
 package com.thoughtworks.introduction.main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Elyse on 14/02/2016.
  */
@@ -11,28 +14,27 @@ public class TriangleExercises {
     }
 
     public static void drawHorizontalLine(int n) {
-        for (int i = 0; i < n; i++) {
-            System.out.print("*");
-        }
+        String line = StringFormatter.buildRepeatingString("*", n);
+        System.out.print(line);
     }
 
     public static void drawVerticalLine(int n) {
-        for (int line = 1; line <= n; line++) {
-            System.out.print("*");
-            //no newline at the end of output.
-            if (line != n) {
-                System.out.println();
-            }
+        List<String> lines = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            lines.add("*");
         }
+
+        StringFormatter.printLines(lines);
     }
 
     public static void drawRightTriangle(int n) {
-        for (int line = 1; line <= n; line++) {
-            drawHorizontalLine(line);
-            //no newline at the end of output.
-            if (line != n) {
-                System.out.println();
-            }
+
+        List<String> lines = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            String line = StringFormatter.buildRepeatingString("*", i);
+            lines.add(line);
         }
+
+        StringFormatter.printLines(lines);
     }
 }
