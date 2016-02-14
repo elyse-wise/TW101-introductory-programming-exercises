@@ -28,7 +28,19 @@ public class TriangleExercisesTest {
         assertEquals("*", outContent.toString());
     }
 
+    @Test
+    public void testDrawHorizontalLine() {
+        TriangleExercises.drawHorizontalLine(3);
+        assertEquals("***", outContent.toString());
 
+        outContent.reset();
+        TriangleExercises.drawHorizontalLine(8);
+        assertEquals("********", outContent.toString());
+
+        outContent.reset();
+        TriangleExercises.drawHorizontalLine(0);
+        assertEquals("", outContent.toString());
+    }
 
     @After
     public void cleanUpStreams() {

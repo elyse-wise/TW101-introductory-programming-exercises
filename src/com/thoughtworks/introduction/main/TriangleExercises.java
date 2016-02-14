@@ -9,4 +9,10 @@ public class TriangleExercises {
     public static void easiestExerciseEver() {
         System.out.print("*");
     }
+
+    public static void drawHorizontalLine(int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.print("*");
+        }
+    }
 }
